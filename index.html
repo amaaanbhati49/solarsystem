@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Solar system hover</title>
+    <link rel="icon" href="img/icon.jpg" type="icon/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Solar system hover</title>
-	<link rel="icon" href="img/icon.jpg" type="icon/x-icon">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;800&display=swap" rel="stylesheet">
-	
-	<link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="wrapp">
+      <div class="menu-img">
+        <img id="1-bg__img" src="img/menu1.jpg" alt="1" />
+        <img id="2-bg__img" src="img/menu2.jpg" alt="2" />
+        <img id="3-bg__img" src="img/menu3.jpg" alt="3" />
+        <img id="4-bg__img" src="img/menu4.jpg" alt="4" />
+      </div>
 
-	<!-- div .wrapp -->
-	<div class="wrapp">
+      <ul class="menu">
+        <li class="menu__item" data-id="1">
+          <a href="#" class="menu__link">Earth</a>
+        </li>
+        <li class="menu__item" data-id="2">
+          <a href="#" class="menu__link">Moon</a>
+        </li>
+        <li class="menu__item" data-id="3">
+          <a href="#" class="menu__link">Mars</a>
+        </li>
+        <li class="menu__item" data-id="4">
+          <a href="#" class="menu__link">Jupiter</a>
+        </li>
+      </ul>
+    </div>
 
-		<div class="menu-img">
-			<img id="1-bg__img" src="img/menu1.jpg" alt="1">
-			<img id="2-bg__img" src="img/menu2.jpg" alt="2">
-			<img id="3-bg__img" src="img/menu3.jpg" alt="3">
-			<img id="4-bg__img" src="img/menu4.jpg" alt="4">
-		</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        "use strict";
 
-		<ul class="menu">
-			<li class="menu__item" data-id="1">
-				<a href="#" class="menu__link">Earth</a>
-			</li>
-			<li class="menu__item" data-id="2">
-				<a href="#" class="menu__link">Moon</a>
-			</li>
-			<li class="menu__item" data-id="3">
-				<a href="#" class="menu__link">Mars</a>
-			</li>
-			<li class="menu__item" data-id="4">
-				<a href="#" class="menu__link">Jupiter</a>
-			</li>
-		</ul>
-
-	</div>
-	<!-- /div .wrapp END -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<script src="js/js.js"></script>
-</body>
-
+        $(".menu__item").on("mouseenter", function () {
+          let id = $(this).data("id");
+          $("#" + id + "-bg__img").addClass("active");
+        });
+        $(".menu__item").on("mouseleave", function () {
+          $(".menu-img img").removeClass("active");
+        });
+      });
+    </script>
+  </body>
 </html>
